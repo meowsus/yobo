@@ -1,0 +1,30 @@
+{
+  "name": "yobo",
+  "version": "0.1.0",
+  "description": "Your Own Bitchin' Oddventure",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/meowsus/yobo.git"
+  },
+  "keywords": [
+    "cyoa",
+    "cya",
+    "choose",
+    "your",
+    "own",
+    "adventure"
+  ],
+  "author": "meowsus",
+  "license": "SEE LICENSE IN <LICENSE>",
+  "bugs": {
+    "url": "https://github.com/meowsus/yobo/issues"
+  },
+  "homepage": "https://github.com/meowsus/yobo#readme",
+  "devDependencies": {
+    "prettier": "3.2.5"
+  }
+}
