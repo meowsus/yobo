@@ -5,3 +5,4 @@ _site
 vendor
 node_modules
 .vscode
+minima-2.5.1
