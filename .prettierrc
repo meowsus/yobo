@@ -1,4 +1,13 @@
 {
   "tabWidth": 2,
-  "proseWrap": "always"
+  "proseWrap": "always",
+  "plugins": ["@shopify/prettier-plugin-liquid"],
+  "overrides": [
+    {
+      "files": "_layouts/*.html",
+      "options": {
+        "parser": "liquid-html"
+      }
+    }
+  ]
 }

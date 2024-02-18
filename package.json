@@ -4,7 +4,8 @@
   "description": "Your Own Bitchin' Oddventure",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prettier:write": "prettier . --write",
+    "prettier:check": "prettier . --check"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   },
   "homepage": "https://github.com/meowsus/yobo#readme",
   "devDependencies": {
-    "prettier": "3.2.5"
+    "@shopify/prettier-plugin-liquid": "^1.4.3",
+    "prettier": "^3.2.5"
   }
 }

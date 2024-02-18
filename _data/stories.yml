@@ -1,0 +1,11 @@
+# The key (like `test` in this case) must match your directory within the `stories` directory.
+# - `title` is the name of your story
+# - `author` is your name
+# - `published_on` is the date your story was written
+# - `rating` should follow the ESRB rating model: [E]veryone, [T]een, [M]ature, [A]dults Only
+test:
+  title: "A Test"
+  author: "Anonymous"
+  published_on: "February 17, 2024"
+  rating: "E"
+# Copy the example above and paste it below, modifying for your needs.

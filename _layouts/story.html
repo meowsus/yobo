@@ -1,13 +1,27 @@
 ---
 layout: default
 ---
+{% assign pageUrlChunks = page.url | split: '/' %}
+{% assign dataKey = pageUrlChunks[2] %}
+{% assign data = site.data.stories[dataKey] %}
 
 <article class="post">
   <header class="post-header">
-    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <h1 class="post-title">{{ data.title | escape }}</h1>
+    <p>Written by {{ data.author }} on {{ data.published_on }}</p>
   </header>
 
-  <div>{{ page.author }}</div>
+  {% if page.subtitle %}
+    <h2>{{ page.subtitle }}</h2>
+  {% endif %}
 
   <div class="post-content">{{ content }}</div>
+
+  {% if page.options %}
+    <nav class="story-options">
+      {% for option in page.options %}
+        <a href="{{ site.url }}/{{ option.page }}">{{ option.text }}</a>
+      {% endfor %}
+    </nav>
+  {% endif %}
 </article>
