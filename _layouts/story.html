@@ -20,7 +20,15 @@ layout: default
   {% if page.options %}
     <nav class="story-options">
       {% for option in page.options %}
-        <a href="{{ site.url }}/{{ option.page }}">{{ option.text }}</a>
+        {% if option.requires_item %}
+          <a href="{{ site.url }}/{{ option.page }}" class="hide" data-inventory-item="{{ option.requires_item }}">
+            {{- option.text -}}
+          </a>
+        {% else %}
+          <a href="{{ site.url }}/{{ option.page }}">
+            {{- option.text -}}
+          </a>
+        {% endif %}
       {% endfor %}
     </nav>
   {% endif %}

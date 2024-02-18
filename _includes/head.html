@@ -1,0 +1,57 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  {%- seo -%}
+  <link rel="stylesheet" href='{{ "/assets/main.css" | relative_url }}' />
+  {%- feed_meta -%} {%- if jekyll.environment == 'production' and
+  site.google_analytics -%} {%- include google-analytics.html -%} {%- endif -%}
+
+  <style>
+    .hide {
+      display: none;
+    }
+  </style>
+
+  <script>
+    {% assign pageUrlChunks = page.url | split: '/' %}
+    {% assign storyKey = pageUrlChunks[2] %}
+
+    const storyKey = "{{ storyKey }}";
+    const storageKey = "yobo-inventory-{{ storyKey }}";
+    const inventory = JSON.parse(window.sessionStorage.getItem(storageKey)) || [];
+
+    {% if page.get_item %}
+      if (storyKey) {
+        inventory.push("{{ page.get_item }}");
+        window.sessionStorage.setItem(storageKey, JSON.stringify(inventory));
+      }
+    {% endif %}
+
+    {% if page.consume_item %}
+      if (storyKey) {
+        const filteredInventory = inventory.filter(function (item) {
+          return item !== "{{ page.consume_item }}";
+        })
+
+        if (filteredInventory.length > 0) {
+          window.sessionStorage.setItem(storageKey, JSON.stringify(filteredInventory));
+        } else {
+          window.sessionStorage.removeItem(storageKey);
+        }
+      }
+    {% endif %}
+
+    if (inventory.length > 0) {
+      window.addEventListener('DOMContentLoaded', function () {
+      const hiddenOptions = window.document.querySelectorAll('[data-inventory-item]');
+      hiddenOptions.forEach(function (optionElement) {
+        const item = optionElement.dataset.inventoryItem;
+        if(inventory.includes(item)) {
+          optionElement.classList.remove('hide');
+        }
+      })
+      })
+    }
+  </script>
+</head>
