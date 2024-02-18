@@ -21,8 +21,8 @@ title: YOBO
 email: curt@portugly.com
 description: >- # this means to ignore newlines until "baseurl:"
   Your Own Bitchin' Oddventure
-baseurl: "/yobo" # the subpath of your site, e.g. /blog
-url: "https://portugly.com" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://yourownbitchinoddventure.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: meowsus
 
 # Build settings
@@ -43,3 +43,25 @@ exclude:
   - package-lock.json
   - package.json
   - minima-2.5.1
+
+# Frontmatter Defaults
+# If these settings are confusing take a look at how `stories/test` is set up.
+defaults:
+  - scope:
+      path: "stories"
+    values:
+      layout: "story"
+  # This is an example. Copy and use below for your own story.
+  # - `scope.path` is the directory where your page files live in
+  # - `values.title` is the name of your story
+  # - `values.author` is your name
+  # - `values.published_on` is the date your story was written
+  # - `values.rating` should follow the ESRB rating model: [E]veryone, [T]een, [M]ature, [A]dults Only
+  - scope:
+      path: "stories/test"
+    values:
+      title: "A Test"
+      author: "Anonymous"
+      published_on: "February 17, 2024"
+      rating: "E"
+  # Copy the example above and paste it below, modifying for your needs.
